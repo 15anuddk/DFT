@@ -1,0 +1,102 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000019a18e6be10 .scope module, "MUX_tb" "MUX_tb" 2 3;
+ .timescale -9 -9;
+v0000019a18eb3020_0 .var "A", 0 0;
+v0000019a18eb2c60_0 .var "B", 0 0;
+v0000019a18eb35c0_0 .var "S", 0 0;
+v0000019a18eb32a0_0 .net "W", 0 0, L_0000019a18ea4bc0;  1 drivers
+S_0000019a18e66aa0 .scope module, "cut" "MUX" 2 6, 3 4 0, S_0000019a18e6be10;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "S";
+    .port_info 3 /OUTPUT 1 "W";
+RS_0000019a18ebb068 .resolv tri, L_0000019a18ea4840, L_0000019a18ea46f0;
+L_0000019a18ea4c30 .functor AND 1, RS_0000019a18ebb068, v0000019a18eb3020_0, C4<1>, C4<1>;
+L_0000019a18ea48b0 .functor AND 1, v0000019a18eb35c0_0, v0000019a18eb2c60_0, C4<1>, C4<1>;
+L_0000019a18ea4bc0 .functor OR 1, L_0000019a18ea4c30, L_0000019a18ea48b0, C4<0>, C4<0>;
+v0000019a18ea5270_0 .net "A", 0 0, v0000019a18eb3020_0;  1 drivers
+v0000019a18ea5310_0 .net "AandSbar", 0 0, L_0000019a18ea4c30;  1 drivers
+v0000019a18e66dc0_0 .net "B", 0 0, v0000019a18eb2c60_0;  1 drivers
+v0000019a18e66e60_0 .net "BandS", 0 0, L_0000019a18ea48b0;  1 drivers
+v0000019a18eb3340_0 .net "S", 0 0, v0000019a18eb35c0_0;  1 drivers
+v0000019a18eb2a80_0 .net8 "Sbar", 0 0, RS_0000019a18ebb068;  2 drivers, strength-aware
+v0000019a18eb2e40_0 .net "W", 0 0, L_0000019a18ea4bc0;  alias, 1 drivers
+S_0000019a18e66c30 .scope module, "b1" "invertertransistor" 3 10, 4 1 0, S_0000019a18e66aa0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "w";
+L_0000019a18f00038 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0000019a18f00080 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0000019a18ea4840 .functor NMOS 1, L_0000019a18f00038, L_0000019a18f00080, C4<0>, C4<0>;
+L_0000019a18f000c8 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0000019a18ea46f0 .functor PMOS 1, L_0000019a18f000c8, v0000019a18eb35c0_0, C4<0>, C4<0>;
+v0000019a18e672e0_0 .net/2s *"_ivl_0", 0 0, L_0000019a18f00038;  1 drivers
+v0000019a18e67140_0 .net/2s *"_ivl_2", 0 0, L_0000019a18f00080;  1 drivers
+v0000019a18eb77e0_0 .net/2s *"_ivl_4", 0 0, L_0000019a18f000c8;  1 drivers
+v0000019a18eb7880_0 .net "a", 0 0, v0000019a18eb35c0_0;  alias, 1 drivers
+v0000019a18ea51d0_0 .net8 "w", 0 0, RS_0000019a18ebb068;  alias, 2 drivers, strength-aware
+    .scope S_0000019a18e6be10;
+T_0 ;
+    %vpi_call 2 14 "$monitor", "at time: %t -> A= %b B=%b S=%b & w= %b, Sbar=%b", $time, v0000019a18eb3020_0, v0000019a18eb2c60_0, v0000019a18eb35c0_0, v0000019a18eb32a0_0, v0000019a18eb2a80_0 {0 0 0};
+    %delay 2, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb3020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb2c60_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000019a18eb35c0_0, 0, 1;
+    %delay 2, 0;
+    %vpi_call 2 23 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "mux_tb.v";
+    "mux.v";
+    "./invertertransistor.v";
