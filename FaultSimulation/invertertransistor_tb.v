@@ -19,7 +19,6 @@ initial begin
   a_ip =0;
 
   #3
-
   a_ip = 1;
   #1
   $finish;
