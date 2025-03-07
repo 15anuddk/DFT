@@ -7,35 +7,35 @@
 :vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
-S_000002638929ed40 .scope module, "invertertransistor_tb" "invertertransistor_tb" 2 3;
+S_0000016ed9f9ed40 .scope module, "invertertransistor_tb" "invertertransistor_tb" 2 3;
  .timescale -9 -9;
-v0000026389105760_0 .var "a_ip", 0 0;
-RS_0000026389107058 .resolv tri, L_0000026389296f40, L_000002638929ef40;
-v0000026389105800_0 .net8 "w_op", 0 0, RS_0000026389107058;  2 drivers, strength-aware
-S_0000026389105490 .scope module, "cut" "invertertransistor" 2 8, 3 1 0, S_000002638929ed40;
+v0000016eda135760_0 .var "a_ip", 0 0;
+RS_0000016eda137058 .resolv tri, L_0000016ed9f96f40, L_0000016ed9f9ef40;
+v0000016eda135800_0 .net8 "w_op", 0 0, RS_0000016eda137058;  2 drivers, strength-aware
+S_0000016eda135490 .scope module, "cut" "invertertransistor" 2 8, 3 1 0, S_0000016ed9f9ed40;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "a";
     .port_info 1 /OUTPUT 1 "w";
-L_0000026389150028 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
-L_0000026389150070 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
-L_0000026389296f40 .functor NMOS 1, L_0000026389150028, L_0000026389150070, C4<0>, C4<0>;
-L_00000263891500b8 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
-L_000002638929ef40 .functor PMOS 1, L_00000263891500b8, v0000026389105760_0, C4<0>, C4<0>;
-v0000026389297170_0 .net/2s *"_ivl_0", 0 0, L_0000026389150028;  1 drivers
-v0000026389297390_0 .net/2s *"_ivl_2", 0 0, L_0000026389150070;  1 drivers
-v0000026389296ea0_0 .net/2s *"_ivl_4", 0 0, L_00000263891500b8;  1 drivers
-v0000026389105620_0 .net "a", 0 0, v0000026389105760_0;  1 drivers
-v00000263891056c0_0 .net8 "w", 0 0, RS_0000026389107058;  alias, 2 drivers, strength-aware
-    .scope S_000002638929ed40;
+L_0000016eda180028 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0000016eda180070 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_0000016ed9f96f40 .functor NMOS 1, L_0000016eda180028, L_0000016eda180070, C4<0>, C4<0>;
+L_0000016eda1800b8 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0000016ed9f9ef40 .functor PMOS 1, L_0000016eda1800b8, v0000016eda135760_0, C4<0>, C4<0>;
+v0000016ed9f97170_0 .net/2s *"_ivl_0", 0 0, L_0000016eda180028;  1 drivers
+v0000016ed9f97390_0 .net/2s *"_ivl_2", 0 0, L_0000016eda180070;  1 drivers
+v0000016ed9f96ea0_0 .net/2s *"_ivl_4", 0 0, L_0000016eda1800b8;  1 drivers
+v0000016eda135620_0 .net "a", 0 0, v0000016eda135760_0;  1 drivers
+v0000016eda1356c0_0 .net8 "w", 0 0, RS_0000016eda137058;  alias, 2 drivers, strength-aware
+    .scope S_0000016ed9f9ed40;
 T_0 ;
     %vpi_call 2 14 "$dumpfile", "trans.vcd" {0 0 0};
-    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002638929ed40 {0 0 0};
-    %vpi_call 2 17 "$monitor", "at time: %t -> a= %b & w= %b", $time, v0000026389105760_0, v0000026389105800_0 {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000016ed9f9ed40 {0 0 0};
+    %vpi_call 2 17 "$monitor", "at time: %t -> a= %b & w= %b", $time, v0000016eda135760_0, v0000016eda135800_0 {0 0 0};
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0000026389105760_0, 0, 1;
+    %store/vec4 v0000016eda135760_0, 0, 1;
     %delay 3, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0000026389105760_0, 0, 1;
+    %store/vec4 v0000016eda135760_0, 0, 1;
     %delay 1, 0;
     %vpi_call 2 24 "$finish" {0 0 0};
     %end;

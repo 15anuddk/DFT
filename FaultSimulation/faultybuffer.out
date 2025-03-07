@@ -1,0 +1,71 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001e05f0e4800 .scope module, "faultybuffer_tb" "faultybuffer_tb" 2 3;
+ .timescale -9 -9;
+v000001e05f13a930_0 .var "a_ip", 0 0;
+RS_000001e05f0f7188 .resolv tri, L_000001e05f1d6d90, L_000001e05f1d6e00;
+v000001e05f13a390_0 .net8 "w_op", 0 0, RS_000001e05f0f7188;  2 drivers, strength-aware
+S_000001e05f0f5d80 .scope module, "cut" "faultybuffer" 2 8, 3 4 0, S_000001e05f0e4800;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "w";
+v000001e05f13a750_0 .net "a", 0 0, v000001e05f13a930_0;  1 drivers
+v000001e05f13a110_0 .net8 "w", 0 0, RS_000001e05f0f7188;  alias, 2 drivers, strength-aware
+RS_000001e05f0f7068 .resolv tri, L_000001e05f0f61e0, L_000001e05f1d7180;
+v000001e05f13a7f0_0 .net8 "wire1", 0 0, RS_000001e05f0f7068;  2 drivers, strength-aware
+S_000001e05f0f5f10 .scope module, "b1" "invertertransistor" 3 11, 4 1 0, S_000001e05f0f5d80;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "w";
+L_000001e05f13b038 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001e05f13b080 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001e05f0f61e0 .functor NMOS 1, L_000001e05f13b038, L_000001e05f13b080, C4<0>, C4<0>;
+L_000001e05f13b0c8 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_000001e05f1d7180 .functor PMOS 1, L_000001e05f13b0c8, v000001e05f13a930_0, C4<0>, C4<0>;
+v000001e05f1d72e0_0 .net/2s *"_ivl_0", 0 0, L_000001e05f13b038;  1 drivers
+v000001e05f0f6c30_0 .net/2s *"_ivl_2", 0 0, L_000001e05f13b080;  1 drivers
+v000001e05f0e4990_0 .net/2s *"_ivl_4", 0 0, L_000001e05f13b0c8;  1 drivers
+v000001e05f0f60a0_0 .net "a", 0 0, v000001e05f13a930_0;  alias, 1 drivers
+v000001e05f0f6140_0 .net8 "w", 0 0, RS_000001e05f0f7068;  alias, 2 drivers, strength-aware
+S_000001e05f1d6ac0 .scope module, "b2" "invertertransistor" 3 12, 4 1 0, S_000001e05f0f5d80;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /OUTPUT 1 "w";
+L_000001e05f13b110 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001e05f13b158 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001e05f1d6d90 .functor NMOS 1, L_000001e05f13b110, L_000001e05f13b158, C4<0>, C4<0>;
+L_000001e05f13b1a0 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_000001e05f1d6e00 .functor PMOS 1, L_000001e05f13b1a0, RS_000001e05f0f7068, C4<0>, C4<0>;
+v000001e05f1d6c50_0 .net/2s *"_ivl_0", 0 0, L_000001e05f13b110;  1 drivers
+v000001e05f1d6cf0_0 .net/2s *"_ivl_2", 0 0, L_000001e05f13b158;  1 drivers
+v000001e05f13a1b0_0 .net/2s *"_ivl_4", 0 0, L_000001e05f13b1a0;  1 drivers
+v000001e05f13acf0_0 .net8 "a", 0 0, RS_000001e05f0f7068;  alias, 2 drivers, strength-aware
+v000001e05f13a2f0_0 .net8 "w", 0 0, RS_000001e05f0f7188;  alias, 2 drivers, strength-aware
+    .scope S_000001e05f0e4800;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "trans.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001e05f0e4800 {0 0 0};
+    %vpi_call 2 17 "$monitor", "at time: %t -> a= %b & w= %b", $time, v000001e05f13a930_0, v000001e05f13a390_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001e05f13a930_0, 0, 1;
+    %delay 3, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001e05f13a930_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 24 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "faultybuffer_tb.v";
+    "faultybuffer.v";
+    "./invertertransistor.v";

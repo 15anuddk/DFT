@@ -1,5 +1,5 @@
 $date
-	Fri Mar 07 11:25:29 2025
+	Fri Mar 07 12:02:37 2025
 $end
 $version
 	Icarus Verilog
@@ -7,21 +7,32 @@ $end
 $timescale
 	1ns
 $end
-$scope module invertertransistor_tb $end
+$scope module faultybuffer_tb $end
 $var wire 1 ! w_op $end
 $var reg 1 " a_ip $end
 $scope module cut $end
 $var wire 1 " a $end
 $var wire 1 ! w $end
+$var wire 1 # wire1 $end
+$scope module b1 $end
+$var wire 1 " a $end
+$var wire 1 # w $end
+$upscope $end
+$scope module b2 $end
+$var wire 1 # a $end
+$var wire 1 ! w $end
+$upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+1#
 0"
-1!
+z!
 $end
 #3
-z!
+x!
+z#
 1"
 #4
