@@ -13,5 +13,8 @@
 ### System Level: System integrated with faulty MUX
 ![alt text](image-4.png)
  
+##Parallel Fault Simulation
 
+### Parallel Pattern Simulation
+![alt text](image-5.png)
 
