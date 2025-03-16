@@ -1,0 +1,175 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001f04cd69800 .scope module, "WiSH_Lab3_Q2_tb" "WiSH_Lab3_Q2_tb" 2 3;
+ .timescale -9 -9;
+v000001f04cdbff80_0 .net "W", 0 0, L_000001f04cd63820;  1 drivers
+v000001f04cdc0840_0 .net "W_f1", 0 0, L_000001f04cd635f0;  1 drivers
+v000001f04cdbfd00_0 .net "W_f2", 0 0, L_000001f04cd63cf0;  1 drivers
+v000001f04cdc0340_0 .net "W_f3", 0 0, L_000001f04cd63f90;  1 drivers
+v000001f04cdbfc60_0 .net "W_f4", 0 0, L_000001f04cd640e0;  1 drivers
+v000001f04cdc0020_0 .var "a", 0 0;
+v000001f04cdc0a20_0 .var "b", 0 0;
+v000001f04cdbfda0_0 .var "c", 0 0;
+v000001f04cdc08e0_0 .var "d", 0 0;
+v000001f04cdc12e0_0 .var "e", 0 0;
+v000001f04cdc1600_0 .var "f", 0 0;
+S_000001f04cd69990 .scope module, "dut" "WiSH_Lab3_Q2" 2 8, 3 1 0, S_000001f04cd69800;
+ .timescale -9 -9;
+    .port_info 0 /OUTPUT 1 "W";
+    .port_info 1 /OUTPUT 1 "W_f1";
+    .port_info 2 /OUTPUT 1 "W_f2";
+    .port_info 3 /OUTPUT 1 "W_f3";
+    .port_info 4 /OUTPUT 1 "W_f4";
+    .port_info 5 /INPUT 1 "a";
+    .port_info 6 /INPUT 1 "b";
+    .port_info 7 /INPUT 1 "c";
+    .port_info 8 /INPUT 1 "d";
+    .port_info 9 /INPUT 1 "e";
+    .port_info 10 /INPUT 1 "f";
+L_000001f04cd63eb0 .functor NOT 1, v000001f04cdc0020_0, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63ba0 .functor OR 1, v000001f04cdc08e0_0, v000001f04cdc12e0_0, C4<0>, C4<0>;
+L_000001f04cd64070 .functor BUFZ 1, L_000001f04cd63ba0, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63dd0 .functor BUFZ 1, L_000001f04cd63ba0, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63ac0 .functor AND 1, L_000001f04cd63eb0, v000001f04cdc0a20_0, C4<1>, C4<1>;
+L_000001f04cd63350 .functor AND 1, v000001f04cdbfda0_0, L_000001f04cd64070, C4<1>, C4<1>;
+L_000001f04cd63b30 .functor OR 1, v000001f04cdc1600_0, L_000001f04cd63dd0, C4<0>, C4<0>;
+L_000001f04cd63c10 .functor OR 1, L_000001f04cd63ac0, L_000001f04cd63350, C4<0>, C4<0>;
+L_000001f04cd63820 .functor AND 1, L_000001f04cd63c10, L_000001f04cd63b30, C4<1>, C4<1>;
+L_000001f04cdc2878 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63890 .functor AND 1, v000001f04cdc0a20_0, L_000001f04cdc2878, C4<1>, C4<1>;
+L_000001f04cd63c80 .functor OR 1, L_000001f04cd63890, L_000001f04cd63350, C4<0>, C4<0>;
+L_000001f04cd635f0 .functor AND 1, L_000001f04cd63c80, L_000001f04cd63b30, C4<1>, C4<1>;
+L_000001f04cdc28c0 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63d60 .functor AND 1, L_000001f04cd64070, L_000001f04cdc28c0, C4<1>, C4<1>;
+L_000001f04cd63e40 .functor OR 1, L_000001f04cd63ac0, L_000001f04cd63d60, C4<0>, C4<0>;
+L_000001f04cd63cf0 .functor AND 1, L_000001f04cd63e40, L_000001f04cd63d60, C4<1>, C4<1>;
+L_000001f04cdc2908 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001f04cd63f20 .functor OR 1, L_000001f04cd63350, L_000001f04cdc2908, C4<0>, C4<0>;
+L_000001f04cd63f90 .functor AND 1, L_000001f04cd63f20, L_000001f04cd63b30, C4<1>, C4<1>;
+L_000001f04cdc2950 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+L_000001f04cd64000 .functor OR 1, v000001f04cdc1600_0, L_000001f04cdc2950, C4<0>, C4<0>;
+L_000001f04cd640e0 .functor AND 1, L_000001f04cd64000, L_000001f04cd63c10, C4<1>, C4<1>;
+v000001f04cd56770_0 .net "W", 0 0, L_000001f04cd63820;  alias, 1 drivers
+v000001f04cd55eb0_0 .net "W_f1", 0 0, L_000001f04cd635f0;  alias, 1 drivers
+v000001f04cd56450_0 .net "W_f2", 0 0, L_000001f04cd63cf0;  alias, 1 drivers
+v000001f04cd56090_0 .net "W_f3", 0 0, L_000001f04cd63f90;  alias, 1 drivers
+v000001f04cd55b90_0 .net "W_f4", 0 0, L_000001f04cd640e0;  alias, 1 drivers
+v000001f04cd56950_0 .net/2s *"_ivl_10", 0 0, L_000001f04cdc2950;  1 drivers
+v000001f04cd564f0_0 .net/2s *"_ivl_4", 0 0, L_000001f04cdc2878;  1 drivers
+v000001f04cd56310_0 .net/2s *"_ivl_6", 0 0, L_000001f04cdc28c0;  1 drivers
+v000001f04cd55ff0_0 .net/2s *"_ivl_8", 0 0, L_000001f04cdc2908;  1 drivers
+v000001f04cd56590_0 .net "a", 0 0, v000001f04cdc0020_0;  1 drivers
+v000001f04cd569f0_0 .net "b", 0 0, v000001f04cdc0a20_0;  1 drivers
+v000001f04cd563b0_0 .net "c", 0 0, v000001f04cdbfda0_0;  1 drivers
+v000001f04cd55c30_0 .net "d", 0 0, v000001f04cdc08e0_0;  1 drivers
+v000001f04cd56630_0 .net "e", 0 0, v000001f04cdc12e0_0;  1 drivers
+v000001f04cd55d70_0 .net "f", 0 0, v000001f04cdc1600_0;  1 drivers
+v000001f04cd561d0_0 .net "g", 0 0, L_000001f04cd63eb0;  1 drivers
+v000001f04cd55e10_0 .net "h", 0 0, L_000001f04cd63ba0;  1 drivers
+v000001f04cd56270_0 .net "h1", 0 0, L_000001f04cd64070;  1 drivers
+v000001f04cd566d0_0 .net "h2", 0 0, L_000001f04cd63dd0;  1 drivers
+v000001f04cdc0660_0 .net "j", 0 0, L_000001f04cd63ac0;  1 drivers
+v000001f04cdc0700_0 .net "j_f1", 0 0, L_000001f04cd63890;  1 drivers
+v000001f04cdc0160_0 .net "k", 0 0, L_000001f04cd63350;  1 drivers
+v000001f04cdc07a0_0 .net "k_f2", 0 0, L_000001f04cd63d60;  1 drivers
+v000001f04cdc1100_0 .net "l", 0 0, L_000001f04cd63b30;  1 drivers
+v000001f04cdc14c0_0 .net "l_f4", 0 0, L_000001f04cd64000;  1 drivers
+v000001f04cdc1560_0 .net "m", 0 0, L_000001f04cd63c10;  1 drivers
+v000001f04cdc16a0_0 .net "m_f1", 0 0, L_000001f04cd63c80;  1 drivers
+v000001f04cdc0200_0 .net "m_f2", 0 0, L_000001f04cd63e40;  1 drivers
+v000001f04cdc0fc0_0 .net "m_f3", 0 0, L_000001f04cd63f20;  1 drivers
+    .scope S_000001f04cd69800;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "WiSH_Lab3_Q2_tb.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc0020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc0a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdbfda0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc08e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdc12e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc1600_0, 0, 1;
+    %delay 1, 0;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdc0840_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.0, 4;
+    %vpi_call 2 18 "$display", "test pattern t3: 110101 detects 'g' stuck at '1' " {0 0 0};
+T_0.0 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdbfd00_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.2, 4;
+    %vpi_call 2 20 "$display", "test pattern t3: 110101 detects 'c' stuck at '1' " {0 0 0};
+T_0.2 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdc0340_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.4, 4;
+    %vpi_call 2 22 "$display", "test pattern t3: 110101 detects 'j' stuck at '0' " {0 0 0};
+T_0.4 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdbfc60_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.6, 4;
+    %vpi_call 2 24 "$display", "test pattern t3: 110101 detects 'h2' stuck at '0' " {0 0 0};
+T_0.6 ;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdc0020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc0a20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdbfda0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdc08e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001f04cdc12e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001f04cdc1600_0, 0, 1;
+    %delay 1, 0;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdc0840_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.8, 4;
+    %vpi_call 2 33 "$display", "test pattern t4: 010010 detects 'g' stuck at '1' " {0 0 0};
+T_0.8 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdbfd00_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.10, 4;
+    %vpi_call 2 35 "$display", "test pattern t4: 010010 detects 'c' stuck at '1' " {0 0 0};
+T_0.10 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdc0340_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.12, 4;
+    %vpi_call 2 37 "$display", "test pattern t4: 010010 detects 'j' stuck at '0' " {0 0 0};
+T_0.12 ;
+    %load/vec4 v000001f04cdbff80_0;
+    %load/vec4 v000001f04cdbfc60_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.14, 4;
+    %vpi_call 2 39 "$display", "test pattern t4: 010010 detects 'h2' stuck at '0' " {0 0 0};
+T_0.14 ;
+    %vpi_call 2 41 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "WiSH_Lab3_Q2_tb.v";
+    "WiSH_Lab3_Q2.v";
