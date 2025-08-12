@@ -1,8 +1,10 @@
-#This mini project is for understanding scan chains,
+## This mini project is for understanding scan chains,
 
+# without scan cell
+![without scan cell](img1.jpg)
 
-![alt text](D:\DFT\scan_insertion\design1\img1.jpg)
-![alt text](D:\DFT\scan_insertion\design1\img2.jpg)
+# with scan insertion
+![with scan insertion](img2.jpg)
 
 
 Scan chains link flip-flops into shift registers for testing.
